@@ -112,7 +112,7 @@ const SchemaDesigner = ({ mode }) => {
       position,
       data: {
         label: `Table ${nodes.length + 1}`,
-        columns: [{ name: 'id', type: 'integer', isPrimary: true }],
+        columns: [{ name: 'id', type: 'ObjectId', isPrimary: true }],
         onDelete: deleteNode,
         onDuplicate: duplicateNode,
         onLabelChange: updateTableName,
