@@ -41,20 +41,6 @@ const TableNode = ({ data, id }) => {
     setContextMenu(null);
   };
 
-  const handleDuplicate = () => {
-    if (data.onDuplicate) {
-      data.onDuplicate(id);
-    }
-    handleClose();
-  };
-
-  const handleDelete = () => {
-    if (data.onDelete) {
-      data.onDelete(id);
-    }
-    handleClose();
-  };
-
   const removeColumn = (index) => {
     setColumns(columns.filter((_, i) => i !== index));
   };

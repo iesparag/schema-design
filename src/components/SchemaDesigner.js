@@ -131,17 +131,20 @@ const SchemaDesigner = ({ mode }) => {
 
   const duplicateNode = useCallback(
     (id) => {
-      const node = nodes.find((n) => n.id === id);
-      if (node) {
+      const nodeToDuplicate = nodes.find((node) => node.id === id);
+      if (nodeToDuplicate) {
         const newNode = {
-          ...node,
+          ...nodeToDuplicate,
           id: `table-${nodes.length + 1}`,
-          position: { x: node.position.x + 50, y: node.position.y + 50 },
+          position: {
+            x: nodeToDuplicate.position.x + 50,
+            y: nodeToDuplicate.position.y + 50,
+          },
         };
         setNodes((nds) => [...nds, newNode]);
       }
     },
-    [nodes]
+    [nodes, setNodes]
   );
 
   const updateTableName = useCallback(
