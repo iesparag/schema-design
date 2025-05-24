@@ -37,10 +37,6 @@ const TableNode = ({ data, id }) => {
     });
   };
 
-  const handleClose = () => {
-    setContextMenu(null);
-  };
-
   const removeColumn = (index) => {
     setColumns(columns.filter((_, i) => i !== index));
   };
