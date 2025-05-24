@@ -18,14 +18,14 @@ import LinkIcon from '@mui/icons-material/Link';
 
 const TableNode = ({ data, id }) => {
   const [columns, setColumns] = useState(data.columns || []);
-  const [newColumn, setNewColumn] = useState({ name: '', type: 'varchar', isPrimary: false, isForeign: false });
+  const [newColumn, setNewColumn] = useState({ name: '', type: 'string', isPrimary: false, isForeign: false });
   const [contextMenu, setContextMenu] = useState(null);
   const [editMode, setEditMode] = useState(false);
 
   const addColumn = () => {
     if (newColumn.name) {
       setColumns([...columns, { ...newColumn }]);
-      setNewColumn({ name: '', type: 'varchar', isPrimary: false, isForeign: false });
+      setNewColumn({ name: '', type: 'string', isPrimary: false, isForeign: false });
     }
   };
 
@@ -353,6 +353,10 @@ const TableNode = ({ data, id }) => {
         >
           <option value="String">String</option>
           <option value="Number">Number</option>
+          <option value="email">Email</option>
+          <option value="password">Password</option>
+          <option value="url">URL</option>
+          <option value="phone">Phone</option>
           <option value="Boolean">Boolean</option>
           <option value="Date">Date</option>
           <option value="ObjectId">ObjectId</option>
