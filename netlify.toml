@@ -6,6 +6,9 @@
   NODE_VERSION = "18"
   DISABLE_ESLINT_PLUGIN = "true"
 
+[site]
+  name = "schema-design"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
