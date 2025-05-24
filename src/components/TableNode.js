@@ -351,12 +351,17 @@ const TableNode = ({ data, id }) => {
             outline: 'none'
           }}
         >
-          <option value="varchar">VARCHAR</option>
-          <option value="integer">INTEGER</option>
-          <option value="boolean">BOOLEAN</option>
-          <option value="date">DATE</option>
-          <option value="decimal">DECIMAL</option>
-          <option value="text">TEXT</option>
+          <option value="String">String</option>
+          <option value="Number">Number</option>
+          <option value="Boolean">Boolean</option>
+          <option value="Date">Date</option>
+          <option value="ObjectId">ObjectId</option>
+          <option value="Array">Array</option>
+          <option value="Object">Object</option>
+          <option value="Mixed">Mixed</option>
+          <option value="Decimal128">Decimal128</option>
+          <option value="Buffer">Buffer</option>
+          <option value="Map">Map</option>
         </select>
         <IconButton 
           size="small" 
