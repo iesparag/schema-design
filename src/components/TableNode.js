@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { Handle } from 'reactflow';
 import {
   Paper,
@@ -13,12 +13,10 @@ import {
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import KeyIcon from '@mui/icons-material/Key';
 import LinkIcon from '@mui/icons-material/Link';
 
 const TableNode = ({ data, id }) => {
-  const { useTheme } = require('@mui/material');
   const [columns, setColumns] = useState(data.columns || []);
   const [newColumn, setNewColumn] = useState({ name: '', type: 'varchar', isPrimary: false, isForeign: false });
   const [contextMenu, setContextMenu] = useState(null);

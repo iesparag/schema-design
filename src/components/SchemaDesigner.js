@@ -6,7 +6,6 @@ import ReactFlow, {
   Background,
   useNodesState,
   useEdgesState,
-  Panel,
   getRectOfNodes,
   getTransformForBounds,
 } from 'reactflow';
@@ -16,7 +15,6 @@ import { Box, Button, ButtonGroup, Snackbar } from '@mui/material';
 import { toPng, toSvg } from 'html-to-image';
 import SaveIcon from '@mui/icons-material/Save';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
-import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import ImageIcon from '@mui/icons-material/Image';
 
 const nodeTypes = {
@@ -98,7 +96,7 @@ const SchemaDesigner = ({ mode }) => {
         style: { stroke: '#999' }
       }, eds)
     );
-  }, [nodes]);
+  }, [nodes, setNodes, setEdges]);
 
   const addNewTable = () => {
     const position = nodes.length > 0
@@ -157,14 +155,14 @@ const SchemaDesigner = ({ mode }) => {
         })
       );
     },
-    []
+    [setNodes]
   );
 
-  const saveSchema = () => {
+  const saveSchema = useCallback(() => {
     const schema = { nodes, edges };
     localStorage.setItem('savedSchema', JSON.stringify(schema));
     setSnackbarMessage('Schema saved successfully!');
-  };
+  }, [nodes, edges, setSnackbarMessage]);
 
   const loadSchema = () => {
     const savedSchema = localStorage.getItem('savedSchema');
